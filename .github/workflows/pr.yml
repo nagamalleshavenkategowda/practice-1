@@ -1,0 +1,33 @@
+name: PR to dev
+
+on:
+  pull_request:
+    types: [ opened, edited, synchronize ready_for_review ]
+    branches:
+      - dev
+
+jobs:
+  build-pr:
+    if: github.event.pull_request.draft == false
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Branch name
+        run: |
+          echo "ref: {{github.ref}}, base_ref: {{github.base_ref}}"
+      - uses: actions/checkout@v2
+      - name: Setup Node 16.x ...
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Init
+        run: |
+          echo $PWD
+          echo $whoami
+      - name: Run testing
+        run: |
+          npm i
+          npm run testing
