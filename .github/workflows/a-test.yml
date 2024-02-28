@@ -5,7 +5,7 @@ on:
     branches: [ dev ]
 
 jobs:
-  Run-npm-on-Ubuntu:
+  build-dev:
     name: Run npm on Ubuntu
     runs-on: ubuntu-latest
     steps:
