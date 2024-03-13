@@ -2,7 +2,7 @@ name: PR to dev
 
 on:
   pull_request:
-    types: [ opened, edited, synchronize ready_for_review ]
+    types: [ opened, edited, synchronize, ready_for_review ]
     branches:
       - dev
 
@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Branch name
         run: |
-          echo "ref: {{github.ref}}, base_ref: {{github.base_ref}}"
+          echo "ref: ${{github.ref}}, base_ref: ${{github.base_ref}}"
       - uses: actions/checkout@v2
       - name: Setup Node 16.x ...
         uses: actions/setup-node@v1
