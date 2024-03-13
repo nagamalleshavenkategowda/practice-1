@@ -45,6 +45,7 @@ jobs:
         run: echo "${{steps.deployment.outputs.page_url}}"
 
   deploy-2:
+    needs: deploy
     environment:
       name: github-pages
       url: "${{ steps.deployment.outputs.page_url }}/testing-2"
