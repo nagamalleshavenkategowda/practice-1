@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './apps'
+          path: './apps' # will deploy https://nagamalleshavenkategowda.github.io/practice-1/testing-2/ and https://nagamalleshavenkategowda.github.io/practice-1/testing/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
